@@ -88,39 +88,22 @@ public_users.get('/getbooks',function (req, res) {
 
 public_users.get('/getBookByISBN/:isbn',function (req, res) {
     let ISBN=req.params.isbn;
-    const req1 = axios.get('https://venkatabhan1-5000.theiadocker-2-labs-prod-theiak8s-4-tor01.proxy.cognitiveclass.ai/isbn/'+ISBN,res);
-    req1.then(resp => {
-        res.send(resp.data);
-    })
-    .catch(err => {
-        res.send('failed to get data');
-    });
+    connectToURL('https://venkatabhan1-5000.theiadocker-2-labs-prod-theiak8s-4-tor01.proxy.cognitiveclass.ai/isbn/'+ISBN,res);
 });
 
 //  Get book details by author using async axios
 
 public_users.get('/getBookByAuthor/:author',function (req, res) {
     let author=req.params.author;
-    const req1 = axios.get('https://venkatabhan1-5000.theiadocker-2-labs-prod-theiak8s-4-tor01.proxy.cognitiveclass.ai/author/'+author,res);
-    req1.then(resp => {
-        res.send(resp.data);
-    })
-    .catch(err => {
-        res.send('failed to get data');
-    });
+    connectToURL('https://venkatabhan1-5000.theiadocker-2-labs-prod-theiak8s-4-tor01.proxy.cognitiveclass.ai/author/'+author,res);
+    
 });
 
 //  Get book details by title using async axios
 
 public_users.get('/getBookByTitle/:title',function (req, res) {
     let title=req.params.title;
-    const req1 = axios.get('https://venkatabhan1-5000.theiadocker-2-labs-prod-theiak8s-4-tor01.proxy.cognitiveclass.ai/title/'+title,res);
-    req1.then(resp => {
-        res.send(resp.data);
-    })
-    .catch(err => {
-        res.send('failed to get data');
-    });
+    connectToURL('https://venkatabhan1-5000.theiadocker-2-labs-prod-theiak8s-4-tor01.proxy.cognitiveclass.ai/title/'+title,res);
 });
 
 module.exports.general = public_users;
