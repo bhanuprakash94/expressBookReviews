@@ -32,7 +32,7 @@ public_users.post("/register", (req,res) => {
 
 // Get the book list available in the shop
 public_users.get('/',function (req, res) {
-  res.send(JSON.stringify(books,null,4))
+  res.send(books)
  
 });
 
@@ -54,7 +54,7 @@ public_users.get('/author/:author',function (req, res) {
         filterdBooks.push(books[bookKeys[index]]);
      }
   }
-  res.send(filterdBooks,null,4);
+  res.send({'booksByAuthor':filterdBooks},null,4);
 });
 
 // Get all books based on title
@@ -67,7 +67,7 @@ public_users.get('/title/:title',function (req, res) {
        filterdBooks.push(books[bookKeys[index]]);
      }
   }
-  res.send(filterdBooks,null,4);
+  res.send({'booksByTitle':filterdBooks},null,4);
 });
 
 //  Get book review
